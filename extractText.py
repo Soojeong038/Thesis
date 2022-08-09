@@ -39,6 +39,9 @@ class extract_text:
         #join texts into a full text
         full_text = (' ').join(text)
         
+        #remove header
+        full_text = re.sub(r'StRH\s\s*.*Seite*.*von\s\s*\d+','',full_text)
+        
         return title, full_text
     
     def split_paragraphs(self):
@@ -47,18 +50,19 @@ class extract_text:
         #splitting
         splitted = re.split(" \n \n",self.full_text)       
         
-        #cleansing
+        return splitted
+    
+    def clensing(self):
+        splitted = self.split_paragraphs() 
+        
         self.paragraphs = []
         
         for i in splitted :           
             #remove linebreaking
             temp = i.replace(' -\n','')
             temp = i.replace('-\n','')
-            #remove header
-            temp = re.sub(r'StRH\s*.*Seite*.*von\s\d+' ,'',temp)
             #remove redundant white spaces
-            temp = re.sub('\s+',' ',temp) 
-            
+            temp = re.sub('\s+',' ',temp)
             if len(temp)>10:
                 self.paragraphs.append(temp)
         
@@ -70,13 +74,13 @@ class extract_text:
 #         print(self.title)
 
 
-# In[3]:
+# In[4]:
 
 
-# k = extract_text(path).main()
 if __name__ == '__main__':
     path = "02-08-StRH-I-3-18.pdf"
+    
     file = extract_text(path)
-    file.split_paragraphs()
-    print(file.paragraphs)
+    extracted_paragraphs = file.clensing()
+    print(extracted_paragraphs)
 
