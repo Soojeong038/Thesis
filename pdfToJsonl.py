@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[3]:
 
 
 import import_ipynb
 
-from initialNer import *
+from initialNer_addRules import *
 from walkThru import *
 
 import pandas as pd
@@ -22,7 +22,7 @@ def pdfTojsonl(import_path,export_path):
     
     #initial set of dataframe
     ind = 0
-    cols = ['year','file_name','title']
+    cols = ['year_month','file_name','title']
     info = pd.DataFrame(columns = cols)
     
     for i in files_list:
@@ -37,7 +37,7 @@ def pdfTojsonl(import_path,export_path):
             document.split_paragraphs()
 
             #inital ner
-            ner_init = ner(document.paragraphs)
+            ner_init = ner(nlp, document.paragraphs)
 
             #export as a jsonl file
             export_jsonl(export_path, j, ner_init)
@@ -55,12 +55,12 @@ def pdfTojsonl(import_path,export_path):
 # In[4]:
 
 
-import_path = "C:\\Users\\sooje\\daten"
+import_path = "C:\\Users\\sooje\\daten\\2021\\2021_01"
 export_path = 'C:\\Users\\sooje\\jsonl'
 df_info = pdfTojsonl(import_path, export_path)
 
 
-# In[6]:
+# In[5]:
 
 
 df_info[:5]
