@@ -33,7 +33,7 @@ def ner(text):
         labels_list=[] #save labels
         
         for word in doc.ents:
-            if word.label_ != "PER": #except person (only organisations)
+            if word.label_ == "ORG": #only organisations
                 labels_list.append([word.start_char, word.end_char, word.label_])
         
         if len(labels_list) > 0:
