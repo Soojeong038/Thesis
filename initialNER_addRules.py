@@ -5,7 +5,7 @@
 
 
 import import_ipynb
-from extractText import extract_text
+from extractText_paragraphs import extract_text
 
 
 import spacy
