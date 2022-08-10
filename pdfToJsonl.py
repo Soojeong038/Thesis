@@ -34,10 +34,10 @@ def pdfTojsonl(import_path,export_path):
 
             #extract text
             document = extract_text(file_path)
-            paragraphs = document.split_paragraphs()
+            extracted_paragraphs = document.clensing()
 
             #inital ner
-            ner_init = ner(nlp, paragraphs)
+            ner_init = ner(nlp, extracted_paragraphs)
 
             #inital ner
             ner_init = ner(nlp, document.paragraphs)
