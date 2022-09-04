@@ -55,8 +55,9 @@ class extract_text:
     def clensing(self):
         splitted = self.split_paragraphs() 
         
+#         self.paragraphs = []
         self.paragraphs = []
-        
+        cleansed =[]
         for i in splitted :           
             #remove linebreaking
             temp = i.replace(' -\n','')
@@ -64,8 +65,31 @@ class extract_text:
             #remove redundant white spaces
             temp = re.sub('\s+',' ',temp)
             if len(temp)>10:
-                self.paragraphs.append(temp)
+                cleansed.append(temp)
         
+        
+        #merge paragraghs of Empfehlung and related Stellungnahme
+        count = 0
+        new = ''
+        
+        while count < len(cleansed):
+
+            if count < (len(cleansed)-1):
+                if "Empfehlung Nr." in cleansed[count] :
+                    if cleansed[count+1].startswith("Stellungnahme"):
+                        new = cleansed[count]+'\n'+cleansed[count+1]
+                        self.paragraphs.append(new)
+                        count += 2
+                    else:
+                        self.paragraphs.append(cleansed[count])
+                        count += 1                       
+                else:
+                    self.paragraphs.append(cleansed[count])
+                    count += 1
+            else:
+                self.paragraphs.append(cleansed[count])
+                count += 1
+
         return self.paragraphs
     
 #     def main(self):
@@ -74,13 +98,12 @@ class extract_text:
 #         print(self.title)
 
 
-# In[4]:
+# In[3]:
 
 
 if __name__ == '__main__':
-    path = "02-08-StRH-I-3-18.pdf"
+    path = "daten\\2021\\2021_01\\StRH-I-20-18-MA_51.docx.rtf.pdf"
     
     file = extract_text(path)
     extracted_paragraphs = file.clensing()
     print(extracted_paragraphs)
-
