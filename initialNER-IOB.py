@@ -100,5 +100,5 @@ if __name__ == '__main__':
     extracted_paragraphs = file.clensing()
     data = ner(nlp, extracted_paragraphs)
     print(data)
-    export_txt('./','new2',data)
+    export_txt('./','conll_import',data)
 
