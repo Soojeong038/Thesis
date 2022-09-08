@@ -64,7 +64,8 @@ ruler.add_patterns(patterns)
 def ner(nlp, text):
     '''text = paragraphs list'''
     ner_init = [] #save inital NER
-   
+    ner_init.append({"text":'title: {}'.format(title), "label":''})
+    
     for i in text:
         doc=nlp(i)
         labels_list=[] #save labels
@@ -75,6 +76,8 @@ def ner(nlp, text):
         
         if len(labels_list) > 0:
             ner_init.append({"text":i, "label":labels_list})
+    
+    ner_init.append({"text":'End of document', "label":''})
     
     return ner_init   
 
