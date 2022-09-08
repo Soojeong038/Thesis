@@ -40,7 +40,7 @@ def pdfTojsonl(import_path,export_path):
             ner_init = ner(nlp, extracted_paragraphs)
 
             #inital ner
-            ner_init = ner(nlp, document.paragraphs)
+            ner_init = ner(nlp, document.title, document.paragraphs)
 
             #export as a jsonl file
             export_jsonl(export_path, j, ner_init)
