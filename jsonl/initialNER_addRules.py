@@ -102,7 +102,7 @@ if __name__ == '__main__':
     extracted_paragraphs = file.clensing()
     
     print('Finding named entities...')
-    ner_init = ner(nlp, extracted_paragraphs)
+    ner_init = ner(nlp, file.title, extracted_paragraphs)
     
     export_jsonl('C:\\Users\\sooje\\jsonl','test1',ner_init)
 
