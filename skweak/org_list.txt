@@ -8,9 +8,14 @@ Gleichbehandlungskommission
 Gleichbehandlungsbeauftragte
 Kontaktfrauen
 Stadtrechnungshof Wien
+Stadtrechnungshofes Wien
 Stadt Wien
 Wiener Gesundheitsverbund
+Gesundheitsverbund
+Gesundheitsverbundes
 Wiener Krankenanstaltenverbund
+Krankenanstaltenverbund
+Krankenanstaltenverbundes
 "Drachengasse 2" Theatregesellschaft m.b.H.
 "Theatre in der Josefstadt" Betriebsgesellschaft m.b.H
 "Volkstheater" Gesellschaft m.b.H.
@@ -45,6 +50,10 @@ Suchthilfe Wien
 Sucht- und Drogenkoordination Wien gemeinnützige GmbH
 Tennis 500 Lizenz GmbH
 Upstream - next level mobility GmbH
+Kuratorium für Psychosoziale Dienste
+Kuratoriums für Psychosoziale Dienste
+Kuratorium Wiener Pensionisten-Wohnhäuser
+Kuratoriums Wiener Pensionisten-Wohnhäuser
 Verein Club Basketball International
 Vereinigte Bühnen Wien Ges.m.b.H.
 WGEG Wiener Gemeindewohnungs Entwicklungsgesellschaft m.b.H.
@@ -108,3 +117,18 @@ Verein Wiener Symphoniker
 W24 Programm GmbH
 WH Medien GmbH
 Wiener Gesundheitsförderung gemeinnützige GmbH
+Wiener Arbeiter Turn- und Sportverein Gruppe Badminton Hernals Wien
+Pflege- und Betreuungsdienste GmbH
+Medizinischen Universität Wien
+MAG ELF
+Kuratorium Wiener Jugendwohnhäuser
+Kuratoriums Wiener Jugendwohnhäuser
+Universitätsklinikums AKH Wien
+ELGA GmbH
+Geschäftsgruppe Finanzen, Wirtschaft, Arbeit, Internationales und Wiener Stadtwerke
+Geschäftsgruppe Bildung, Jugend, Integration und Transparenz
+Geschäftsgruppe Soziales, Gesundheit und Sport
+Geschäftsgruppe Wohnen, Wohnbau, Stadterneuerung und Frauen
+Geschäftsgruppe Innovation, Stadtplanung und Mobilität
+Geschäftsgruppe Klima, Umwelt, Demokratie und Personal
+Geschäftsgruppe Kultur und Wissenschaft
