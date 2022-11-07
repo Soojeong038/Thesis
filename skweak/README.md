@@ -34,11 +34,13 @@ Reference : https://github.com/NorskRegnesentral/skweak
 
 <b> 2. Define labelling function  </b>
 
+
    -  0)ORG detected by SpaCy pipelines : ```lf0 = heuristics.FunctionAnnotator("from_spacy_ner", from_spacy_ner)```
    
       - model - "de_core_news_lg",
    
       - except : ['KURZFASSUNG', 'INHALTSVERZEICHNIS','ABKÜRZUNGSVERZEICHNIS', 'Einschau']
+
 
    -  1)ma_detector : ```lf1 = heuristics.FunctionAnnotator("ma_detect", ma_detector)```
    
@@ -46,14 +48,35 @@ Reference : https://github.com/NorskRegnesentral/skweak
       
       - token [i+1] == num (r'\d*)
       
+      
    -  2)gov_detector : ```lf2 = gazetteers.GazetteerAnnotator("gov_detect", {"ORG":trie})```
    
       - find tokens in the list of orgs (extracted from document reports titles in https://www.stadtrechnungshof.wien.at/)
 
+
    -  3)company_detector : ```lf3 = heuristics.FunctionAnnotator("company_detect", company_detector)```
    
-      - find tokens in the list of orgs (extracted from document reports titles in https://www.stadtrechnungshof.wien.at/)
+      - token [i] in ["Gesellschaft m.b.H.","Gesellschaft mbH", "Ges.m.b.H.", "Gesellschaft mit beschränkter Haftung", "Betriebsgesellschaft m.b.H.", "GmbH"]
       
-      - token [i+1] == num (r'\d*)
+      - if token [i-1] == noun_chunk, then "ORG" = token [i-1] + token [i]
+      
+        : Example : token [i] = Projekt GmbH, token [i-1] = WIP Wiener Infrastruktur 
+
+          ⇒ "ORG" = "WIP Wiener Infrastruktur Projekt GmbH"
+          
+
+   -  4)verein_detector : ```lf4 = heuristics.FunctionAnnotator("verein_detect", verein_detector)```
+   
+      - 'Verein' in token [i]
+      
+      - token [i+1].pos_ == 'NOUN' or 'PROPN'
+      
+      
+   -  5)band_detector : ```lf5 = heuristics.FunctionAnnotator("band_detect", band_detector)```
+   
+      - 'Wiener' in token [i]
+      
+      - token [i+1] ends with 'band'   
+
 # Step 2.
 a
