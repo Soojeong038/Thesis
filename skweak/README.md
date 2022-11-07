@@ -80,6 +80,12 @@ Reference : https://github.com/NorskRegnesentral/skweak
 
 # Step3. Aggregate labelling functions
 
+1. Fit HMM aggregation model
+
+  - implemented classes (MajorityVoter, NaiveBayes, HMM, etc.) instead
+  - Fits the parameters of the aggregator model based on a collection of documents.
+  
+    The method extracts a dataframe of observations for each document and calls the _fit method
 
 ```
 doc_lf = lf5(lf4(lf3(lf2(lf1(lf0(docs[0]))))))
@@ -91,6 +97,25 @@ hmm.fit_and_aggregate([doc_lf]*10)
 # once fitted, we simply apply the model to aggregate all functions
 doc_hmm = hmm(doc_lf)
 ```
+
+OR
+
+2. Combine Annotators
+
+```
+combined = skweak.base.CombinedAnnotator()
+combined.add_annotator(lf0)
+combined.add_annotator(lf1)
+combined.add_annotator(lf2)
+combined.add_annotator(lf3)
+combined.add_annotator(lf4)
+combined.add_annotator(lf5)
+
+test_with_combined = list(combined.pipe(docs))
+```
+
+⇒ Get the same results
+
 
 # Result : compare to hand-labelled data
 
