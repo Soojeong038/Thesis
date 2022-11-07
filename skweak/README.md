@@ -86,7 +86,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
   - Fits the parameters of the aggregator model based on a collection of documents.
   
     The method extracts a dataframe of observations for each document and calls the _fit method
-  - 
+   
 ```
 doc_lf = lf5(lf4(lf3(lf2(lf1(lf0(docs[0]))))))
 
