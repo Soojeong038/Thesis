@@ -1,0 +1,22 @@
+train2
+The number of paragraphs : 1800
+The number of tokens : 90517
+  - B-ORG : 1543
+  - I-ORG : 2077
+  - O : 86897
+True
+
+dev2
+The number of paragraphs : 954
+The number of tokens : 47114
+  - B-ORG : 830
+  - I-ORG : 1049
+  - O : 45235
+True
+
+test2
+The number of paragraphs : 948
+The number of tokens : 45068
+  - B-ORG : 831
+  - I-ORG : 845
+  - O : 43392
