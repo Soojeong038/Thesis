@@ -116,3 +116,50 @@ doc_hmm = hmm(doc_lf)
 | I-ORG | 0.85  | 0.90  | 0.87 | 1,046  |
 | accuracy | -  | -  | 0.99 | 42312  |
 | macro avg | 0.92  | 0.92 | 0.92 | 42312  |
+
+
+
+
+# Appendix
+
+
+1. heuristics.FunctionAnnotator :
+
+  - "heuristics" : Labelling sources based on heuristics / handcrafted rules
+  - define fuction (If the function to apply is relatively simple and stateless)
+
+
+```
+#https://github.com/NorskRegnesentral/skweak/blob/main/skweak/heuristics.py
+class FunctionAnnotator(SpanAnnotator):
+    """Annotation based on a heuristic function that generates (start,end,label)
+    given a spacy document"""
+
+    def __init__(self, name: str, 
+                 function: Callable[[Doc], Iterable[Tuple[int, int, str]]],
+                 to_exclude: Sequence[str] = ()):
+        """Create an annotator based on a function generating labelled spans given 
+        a Spacy Doc object. Spans that overlap with existing spans from sources 
+        listed in 'to_exclude' are ignored. """
+
+        super(FunctionAnnotator, self).__init__(name)
+        self.find_spans = function
+        self.add_incompatible_sources(to_exclude)
+```
+
+2. gazetteers.GazetteerAnnotator :
+
+ - create labelling functions is by compiling lists of entities to detect
+ - Trie data structure (used for gazetteers) : made of nodes expressed as (dict, bool) pairs, where the
+    dictionary expressed possible edges (tokens) going out from the node, and the boolean
+    indicates whether the node is terminal or not.
+ - Find longest match and add to entity
+
+
+```
+#https://github.com/NorskRegnesentral/skweak/blob/main/skweak/gazetteers.py
+class GazetteerAnnotator(base.SpanAnnotator):
+    """Annotation using a gazetteer, i.e. a large list of entity terms. The annotation can
+    look at either case-sensitive and case-insensitive occurrences.  The annotator relies 
+    on a token-level trie for efficient search. """
+```
