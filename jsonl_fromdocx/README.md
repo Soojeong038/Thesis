@@ -1,4 +1,4 @@
-# Thesis
+# From Docx to Jsonl (for Doccano)
 Extract initial Named entity recognition results(Only ORG) from PDF files
 
 1.JSONL
