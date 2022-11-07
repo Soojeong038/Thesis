@@ -7,9 +7,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
   <img width="460" height="300" src="https://raw.githubusercontent.com/NorskRegnesentral/skweak/main/data/skweak_procedure.png">
 </p>
 
-# Steps
-
-<b> 1. Load data </b>
+# Step 1. Load data 
 
    -  Load unlabelled data - text
 
@@ -32,9 +30,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
    ```
 
 
-
-
-<b> 2. Define labelling function  </b>
+# Step 2. Define labelling functions
 
 
    -  0)ORG detected by SpaCy pipelines : ```lf0 = heuristics.FunctionAnnotator("from_spacy_ner", from_spacy_ner)```
@@ -82,8 +78,9 @@ Reference : https://github.com/NorskRegnesentral/skweak
       
 
 
+# Step3. Aggregate labelling functions
 
-<b> 3. Aggregate labelling functions  </b>
+
 ```
 doc_lf = lf5(lf4(lf3(lf2(lf1(lf0(docs[0]))))))
 
