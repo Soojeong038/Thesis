@@ -32,12 +32,14 @@ Reference : https://github.com/NorskRegnesentral/skweak
    ```
 
 
+
+
 <b> 2. Define labelling function  </b>
 
 
    -  0)ORG detected by SpaCy pipelines : ```lf0 = heuristics.FunctionAnnotator("from_spacy_ner", from_spacy_ner)```
    
-      - model - "de_core_news_lg",
+      - model - "de_core_news_lg", only 'ORG' entities
    
       - except : ['KURZFASSUNG', 'INHALTSVERZEICHNIS','ABKÜRZUNGSVERZEICHNIS', 'Einschau']
 
@@ -77,6 +79,43 @@ Reference : https://github.com/NorskRegnesentral/skweak
       - 'Wiener' in token [i]
       
       - token [i+1] ends with 'band'   
+      
 
-# Step 2.
-a
+
+
+<b> 3. Aggregate labelling functions  </b>
+```
+doc_lf = lf5(lf4(lf3(lf2(lf1(lf0(docs[0]))))))
+
+# create and fit the HMM aggregation model
+hmm = skweak.aggregation.HMM("hmm", ["ORG"])
+hmm.fit_and_aggregate([doc_lf]*10)
+
+# once fitted, we simply apply the model to aggregate all functions
+doc_hmm = hmm(doc_lf)
+```
+
+# Result : compare to hand-labelled data
+
+1. The number of tokens
+
+| Methods  | Total Tokens | B-ORG  | I-ORG | O |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Hand-labelled  | 42,312  | 814  | 1,046  | 40,425  |
+| skweak result | 42,312  | 809  | 1,114 | 40,389  |
+
+
+2. Classification report
+
+- True = Hand labelled
+
+- Predicted = skweak
+
+
+|   | precision | recall  | f1-score | support |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| O  | 0.99  | 0.99  | 0.99  | 40,425  |
+| B-ORG | 0.91  | 0.87  | 0.89 | 841  |
+| I-ORG | 0.85  | 0.90  | 0.87 | 1,046  |
+| accuracy | -  | -  | 0.99 | 42312  |
+| macro avg | 0.92  | 0.92 | 0.92 | 42312  |
