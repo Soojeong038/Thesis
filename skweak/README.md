@@ -42,7 +42,12 @@ Reference : https://github.com/NorskRegnesentral/skweak
       
    -  2)gov_detector : ```lf2 = gazetteers.GazetteerAnnotator("gov_detect", {"ORG":trie})```
    
-      - find tokens in the list of orgs (extracted from document reports titles in https://www.stadtrechnungshof.wien.at/)
+      - find tokens in the list of orgs
+      
+      - ORGs extracted from Tätigkeitsberichte 2013 - 2021 : https://www.stadtrechnungshof.wien.at/berichte/archiv/index.html)
+      
+      - Total 274
+
 
 
    -  3)company_detector : ```lf3 = heuristics.FunctionAnnotator("company_detect", company_detector)```
