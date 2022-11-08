@@ -37,7 +37,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
    
       - token [i] in ["MA","ma","Magistratsabteilung","magistratsabteilung", 'Magistratsabteilungen','magistratsabteilungen']
       
-      - token [i+1] == num (r'\d*)
+      - token [i+1] == num ('\d*')
       
       
    -  2)gov_detector : ```lf2 = gazetteers.GazetteerAnnotator("gov_detect", {"ORG":trie})```
