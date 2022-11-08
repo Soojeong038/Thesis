@@ -33,13 +33,6 @@ Reference : https://github.com/NorskRegnesentral/skweak
 # Step 2. Define labelling functions
 
 
-   -  0)ORG detected by SpaCy pipelines : ```lf0 = heuristics.FunctionAnnotator("from_spacy_ner", from_spacy_ner)```
-   
-      - model - "de_core_news_lg", only 'ORG' entities
-   
-      - except : ['KURZFASSUNG', 'INHALTSVERZEICHNIS','ABKÜRZUNGSVERZEICHNIS', 'Einschau']
-
-
    -  1)ma_detector : ```lf1 = heuristics.FunctionAnnotator("ma_detect", ma_detector)```
    
       - token [i] in ["MA","ma","Magistratsabteilung","magistratsabteilung", 'Magistratsabteilungen','magistratsabteilungen']
@@ -80,7 +73,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
     The method extracts a dataframe of observations for each document and calls the _fit method
    
 ```
-doc_lf = lf4(lf3(lf2(lf1(lf0(docs[0])))))
+doc_lf = lf4(lf3(lf2(lf1(docs[0]))))
 
 # create and fit the HMM aggregation model
 hmm = skweak.aggregation.HMM("hmm", ["ORG"])
@@ -96,7 +89,7 @@ OR
 
 ```
 combined = skweak.base.CombinedAnnotator()
-combined.add_annotator(lf0)
+
 combined.add_annotator(lf1)
 combined.add_annotator(lf2)
 combined.add_annotator(lf3)
