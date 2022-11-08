@@ -63,19 +63,11 @@ Reference : https://github.com/NorskRegnesentral/skweak
           ⇒ "ORG" = "WIP Wiener Infrastruktur Projekt GmbH"
           
 
-   -  4)verein_detector : ```lf4 = heuristics.FunctionAnnotator("verein_detect", verein_detector)```
-   
-      - 'Verein' in token [i]
+   -  4)pre_org_detector : ```lf4 = heuristics.FunctionAnnotator("pre_org_detect", pre_org_detector)```
+  
+      - token [i] in ["Wiener", "Österreichische", "Österreichischen", "Verein", "Vereiner", "Vereinen"]
       
-      - token [i+1].pos_ == 'NOUN' or 'PROPN'
-      
-      
-   -  5)band_detector : ```lf5 = heuristics.FunctionAnnotator("band_detect", band_detector)```
-   
-      - 'Wiener' in token [i]
-      
-      - token [i+1] ends with 'band'   
-      
+      - if token [i+1] == noun_chunk, then "ORG" = token [i] + noun_chunk  
 
 
 # Step3. Aggregate labelling functions
@@ -88,7 +80,7 @@ Reference : https://github.com/NorskRegnesentral/skweak
     The method extracts a dataframe of observations for each document and calls the _fit method
    
 ```
-doc_lf = lf5(lf4(lf3(lf2(lf1(lf0(docs[0]))))))
+doc_lf = lf4(lf3(lf2(lf1(lf0(docs[0])))))
 
 # create and fit the HMM aggregation model
 hmm = skweak.aggregation.HMM("hmm", ["ORG"])
@@ -109,7 +101,6 @@ combined.add_annotator(lf1)
 combined.add_annotator(lf2)
 combined.add_annotator(lf3)
 combined.add_annotator(lf4)
-combined.add_annotator(lf5)
 
 test_with_combined = list(combined.pipe(docs))
 ```
@@ -124,7 +115,7 @@ test_with_combined = list(combined.pipe(docs))
 | Methods  | Total Tokens | B-ORG  | I-ORG | O |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Hand-labelled  | 42,312  | 814  | 1,046  | 40,425  |
-| skweak result | 42,312  | 809  | 1,114 | 40,389  |
+| skweak result | 42,312  | 866  | 1,241 | 40,205  |
 
 
 2. Classification report
@@ -137,10 +128,10 @@ test_with_combined = list(combined.pipe(docs))
 |   | precision | recall  | f1-score | support |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | O  | 0.99  | 0.99  | 0.99  | 40,425  |
-| B-ORG | 0.91  | 0.87  | 0.89 | 841  |
-| I-ORG | 0.85  | 0.90  | 0.87 | 1,046  |
+| B-ORG | 0.91  | 0.87  | 0.86 | 841  |
+| I-ORG | 0.85  | 0.90  | 0.85 | 1,046  |
 | accuracy | -  | -  | 0.99 | 42312  |
-| macro avg | 0.92  | 0.92 | 0.92 | 42312  |
+| macro avg | 0.88 | 0.93 | 0.90 | 42312  |
 
 
 
