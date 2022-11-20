@@ -1,0 +1,8 @@
+{"epoch":0,"step":0,"losses":{"transformer":446.1950531006,"ner":833.9543991089},"scores":{"ents_f":0.0,"ents_p":0.0,"ents_r":0.0},"score":0.0}
+{"epoch":0,"step":50,"losses":{"transformer":17118.7525696009,"ner":29067.0997686827},"scores":{"ents_f":39.6671826625,"ents_p":94.702802587,"ents_r":25.0877049849},"score":0.3966718266}
+{"epoch":0,"step":100,"losses":{"transformer":1643.3015820092,"ner":1741.7731113752},"scores":{"ents_f":70.6755294481,"ents_p":67.1414935017,"ents_r":74.6022680917},"score":0.7067552945}
+{"epoch":0,"step":150,"losses":{"transformer":454.716410875,"ner":784.0050470596},"scores":{"ents_f":83.9774207555,"ents_p":81.3475068828,"ents_r":86.7830627397},"score":0.8397742076}
+{"epoch":0,"step":200,"losses":{"transformer":252.9932168843,"ner":559.383614463},"scores":{"ents_f":89.4698853156,"ents_p":87.974134532,"ents_r":91.0173778249},"score":0.8946988532}
+{"epoch":0,"step":250,"losses":{"transformer":248.3060756355,"ner":549.3326071588},"scores":{"ents_f":89.8745304883,"ents_p":88.0726760122,"ents_r":91.7516521172},"score":0.8987453049}
+{"epoch":0,"step":300,"losses":{"transformer":255.233709359,"ner":522.1768488238},"scores":{"ents_f":91.4413514917,"ents_p":89.5634485996,"ents_r":93.3996899731},"score":0.9144135149}
+{"epoch":1,"step":350,"losses":{"transformer":195.5794769197,"ner":375.8834190691},"scores":{"ents_f":91.4394570782,"ents_p":89.0262751159,"ents_r":93.9871094069},"score":0.9143945708}

@@ -1,0 +1,16 @@
+{"epoch":0,"step":0,"losses":{"transformer":446.1949920654,"ner":833.9543867111},"scores":{"ents_f":0.0,"ents_p":0.0,"ents_r":0.0},"score":0.0}
+{"epoch":0,"step":50,"losses":{"transformer":17118.6917251623,"ner":29066.9231445797},"scores":{"ents_f":39.7188729125,"ents_p":94.7109471095,"ents_r":25.1284980011},"score":0.3971887291}
+{"epoch":0,"step":100,"losses":{"transformer":1691.578146269,"ner":1776.3856488815},"scores":{"ents_f":69.7914644091,"ents_p":66.5925596561,"ents_r":73.3132087787},"score":0.6979146441}
+{"epoch":0,"step":150,"losses":{"transformer":415.7820333343,"ner":755.9717631477},"scores":{"ents_f":83.7610201511,"ents_p":80.9139989354,"ents_r":86.8156971526},"score":0.8376102015}
+{"epoch":0,"step":200,"losses":{"transformer":264.4038518338,"ner":577.9322839583},"scores":{"ents_f":90.1526779223,"ents_p":89.2728581713,"ents_r":91.0500122379},"score":0.9015267792}
+{"epoch":0,"step":250,"losses":{"transformer":263.0440579536,"ner":530.9751447457},"scores":{"ents_f":88.9907531811,"ents_p":86.2901371753,"ents_r":91.8658725626},"score":0.8899075318}
+{"epoch":0,"step":300,"losses":{"transformer":268.734679775,"ner":538.35940021},"scores":{"ents_f":91.2966395358,"ents_p":90.1918637051,"ents_r":92.4288161867},"score":0.9129663954}
+{"epoch":1,"step":350,"losses":{"transformer":179.0217501303,"ner":378.5352706956},"scores":{"ents_f":90.8664360412,"ents_p":88.628606888,"ents_r":93.2202007016},"score":0.9086643604}
+{"epoch":1,"step":400,"losses":{"transformer":173.9621451772,"ner":462.3950627702},"scores":{"ents_f":92.6490541943,"ents_p":90.6804155925,"ents_r":94.7050664926},"score":0.9264905419}
+{"epoch":1,"step":450,"losses":{"transformer":152.4076916908,"ner":370.7082870675},"scores":{"ents_f":92.6411207252,"ents_p":93.5819528844,"ents_r":91.7190177042},"score":0.9264112073}
+{"epoch":1,"step":500,"losses":{"transformer":166.379814839,"ner":377.9538270607},"scores":{"ents_f":93.683867817,"ents_p":93.4632561916,"ents_r":93.9055233744},"score":0.9368386782}
+{"epoch":1,"step":550,"losses":{"transformer":144.8600145971,"ner":331.8204511694},"scores":{"ents_f":93.2391523713,"ents_p":92.2671353251,"ents_r":94.2318675043},"score":0.9323915237}
+{"epoch":1,"step":600,"losses":{"transformer":141.4212255615,"ner":312.5758698215},"scores":{"ents_f":94.1862348178,"ents_p":93.4822791931,"ents_r":94.9008729705},"score":0.9418623482}
+{"epoch":2,"step":650,"losses":{"transformer":130.2181382803,"ner":308.7721558598},"scores":{"ents_f":94.3580630831,"ents_p":93.4261036468,"ents_r":95.3088031329},"score":0.9435806308}
+{"epoch":2,"step":700,"losses":{"transformer":133.9662742456,"ner":266.5692794082},"scores":{"ents_f":94.2664418212,"ents_p":92.8057553957,"ents_r":95.773843518},"score":0.9426644182}
+{"epoch":2,"step":750,"losses":{"transformer":104.4246851701,"ner":230.2096851719},"scores":{"ents_f":94.2204140242,"ents_p":92.1726236928,"ents_r":96.3612629518},"score":0.9422041402}
